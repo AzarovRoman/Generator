@@ -1,0 +1,39 @@
+﻿<Window x:Class="Generator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Generator"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        Title="MainWindow" Height="448" Width="680" Closed="Window_Closed">
+
+    <Grid>
+        <Label Content="master-password:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="passwordBoxMasterPassword" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="website:" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxWebsiteName" HorizontalAlignment="Left" Margin="10,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="login:" HorizontalAlignment="Left" Margin="10,108,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBoxLogin" HorizontalAlignment="Left" Margin="10,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnGenerate" Content="generate" HorizontalAlignment="Left" Margin="3,209,0,0" VerticalAlignment="Top" Click="btnGenerate_Click"/>
+        <CheckBox x:Name="checkBoxIsClean" Content="clean after generate" HorizontalAlignment="Left" Margin="10,167,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        <Label Content="your new password:" HorizontalAlignment="Left" Margin="150,10,0,0" VerticalAlignment="Top" Width="117"/>
+        <TextBox x:Name="textBoxNewPassword" HorizontalAlignment="Left" Margin="150,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="429" Height="22"/>
+        <Button x:Name="btnDeleteAllPwds" Content="delete all passwords" HorizontalAlignment="Left" Margin="3,259,0,0" VerticalAlignment="Top" Click="btnDeleteAllPwds_Click"/>
+        <Button x:Name="btnSelectFolder" Content="select folder to save pwds" HorizontalAlignment="Left" Margin="3,284,0,0" VerticalAlignment="Top" Click="btnSelectFolder_Click"/>
+        <Label x:Name="lableFilePath" Content="Label" HorizontalAlignment="Left" Margin="3,309,0,0" VerticalAlignment="Top" Width="294"/>
+
+        <DataGrid x:Name="DataGridPwds" ItemsSource="{Binding Password}" AutoGenerateColumns="False" SelectionUnit="FullRow"
+                       SelectionMode="Single" Margin="150,67,101,128">
+            <DataGrid.Columns>
+                
+                <DataGridTextColumn Header="website" Binding="{Binding Website}" Width="90" />
+                <DataGridHyperlinkColumn Header="login" Binding="{Binding Login}" Width="80" />
+                <DataGridTextColumn Header="password" Binding="{Binding Pwd}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnDeleteSelected" Content="delete selected" HorizontalAlignment="Left" Margin="3,234,0,0" VerticalAlignment="Top" Click="btnDeleteSelected_Click"/>
+
+
+    </Grid>
+</Window>
